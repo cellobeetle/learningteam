@@ -9,20 +9,37 @@ class Player:
         self.inventory = inventory
         self.health = health
 class Location:
-    def __init__(self, name, description, connections, items):
+    def __init__(self, name, description, connections, items, icecream):
         self.name = name
         self.description = description
         self.connections = connections
         self.items = items
+        self.icecream = icecream
 class Item:
     def __init__(self, name, description, properties):
         self.name = name
         self.description = description
         self.properties = properties
-class IceCream():
+class IceCream:
     def __init__(self, name, description):
         self.name = name
         self.description = description
+class Button:
+    def __init__(self, name, description, locationa, locationb):
+        self.name = name
+        self.description = description
+        self.locationa = locationa
+        self.locationb = locationb
+
+def create_game_world():
+    locations = {
+    "mainParlor" : Location("Main Parlor", "This is a cozy ice cream parlor. The checkered floor is cool against your socked feet. There are chairs by the window, and ice cream behind a counter", ["rollerRink"], ["button1", "chair",], []), 
+    "rollerRink" : Location("Roller Rink", "A vast roller skating rink, people are zooming. Woot woot!", ["mainParlor", "bathroom", "laundry"], [], []), 
+    "bathroom" : Location("Bathroom", "This bathroom is surprisingly clean, but it's still weird to be wearing socks here. Someone is crying in the corner", ["rollerRink"], ["handSoap"], []), 
+    "laundry" : Location("Laundry Room", "Piles of roller skates are here. It surprisingly doesn't smell too bad.", ["rollerRink", "garbage"], ["rollerskate"], [])
+    }
+
+
 
 
 # this is the main game loop
