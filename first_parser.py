@@ -1,4 +1,3 @@
-from notouch import Location
 
 
 running = True
@@ -43,8 +42,7 @@ class Command:
 print("hi friend \nyou are in a cozy ice cream parlor. The checkered floor is cool against your socked feet.")
 while running:
     command = Command(input("enter a word: "))
-    print(command.inputArray)
-    command.remove_all_else(["go", "parlor", "rink", "bathroom", "laundry"] + player.location.connections)
+    command.remove_all_else(["go","look"] + player.location.connections)
 
     if "exit" in command.inputArray:
         break
@@ -55,9 +53,10 @@ while running:
                 player.location = locations[option]
                 print(f"you are now in {player.location.description}")
 
+    if "look" in command.inputArray:
 
-    print(f"you can go to {player.location.connections}")
-    print(f"you can grab {player.location.items}")
+        print(f"you can go to {player.location.connections}")
+        print(f"you can grab {player.location.items}")
 
 
     if "grab" in command.inputArray:
@@ -65,5 +64,7 @@ while running:
             if item in command.inputArray:
                 player.inventory[item] = player.location.items[item]
                 print(f"you grabbed the {item}")
+                del player.location.items[item] 
+                break
 
 print("goodbye, friend")
