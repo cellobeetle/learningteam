@@ -1,4 +1,4 @@
-from game import Location
+from notouch import Location
 
 
 running = True
