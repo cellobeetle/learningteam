@@ -45,7 +45,7 @@ def create_game_world():
 # this is the main game loop
 print("You are in an ice cream parlor. The checkered floor is cool against your socked feet.")
 while(True):
-    choice = input("\nDo you want to sit?")
+    choice = input("\nDo you want to sit??")
     if(choice == "yes"):
         print("You are sitting. How pleasant it must be to sit")
         see = input("You look out the window. It is raining. Are you cold?")
